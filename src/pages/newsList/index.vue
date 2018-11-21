@@ -2,7 +2,7 @@
     <div class="newsList-container">
         <ul class="mui-table-view">
 			<li v-for="item in newsList" :key="item.id" class="mui-table-view-cell mui-media">
-				<a href="javascript:;" class="">
+				<router-link :to="'/home/newsInfo/'+ item.id">
 					<img class="mui-media-object mui-pull-left" :src="item.img_url">
 					<div class="mui-media-body">
 						<h1>{{ item.title }}</h1>	
@@ -11,7 +11,7 @@
                             <span>点击:{{ item.click }} 次</span>
                         </p>
 					</div>
-				</a>
+				</router-link>
 			</li>
 		</ul>
     </div>
@@ -33,14 +33,14 @@ export default {
 		getNewsList() {
 			this.$http.get("api/getnewslist").then(result => {
 				if(result.body.status === 0){
-					console.log(result)
+					// console.log(result)
 					//获取到数据了
 					this.newsList = result.body.message;
 				} else {
 					//获取失败,提醒用户数据获取失败
-					Toast("新闻列表获取失败!请重试!")
+					Toast("新闻列表获取失败!请重试!");
 				}
-			})
+			});
 		}
 	}
 };
