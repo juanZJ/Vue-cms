@@ -74,3 +74,22 @@ npm test
 4. 将注册子组件时候的注册名称以标签形式在页面中引用即可
 
 ## 获取所有的评论数据显示到页面中
+1. getComments
+2. 每当获取新评论数据的时候,不要把老数据清空覆盖,而是应该以老数据拼接上新数据
+3. `concat()` 方法用于连接两个或多个字符串
+4. `this.comments = this.comments.concat(result.body.message);`
+
+## 实现点击加载更多评论功能
+1. 为加载更多按钮绑定点击事件, 在事件中请求下一页数据
+2. 点击加载更多,让 `pageIndex++`,然后重新调用 `this.getComments()`方法重新获取最新一页的数据
+3. 为了防止新数据覆盖老数据的情况,
+    + 我们在点击加载更多的时候,每当获取到新的数据,应该让老数据调用数组的 `concat`方法,拼接上新数组
+     ```
+    var comment = {
+           user_name: "匿名用户",
+           add_time: Date.now(),
+          content: this.msg.trim()
+    };
+    this.comments.unshift(comment);
+    this.msg = "";
+    ```

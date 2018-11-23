@@ -1,7 +1,7 @@
 <template>
     <div class="newsInfo-container">
         <!-- 大标newsInfo-container题 -->
-     <comment :id="id"></comment>   <div class="title"></div>
+       <div class="title"></div>
         <!-- 小标题 -->
         <div class="subtitle">
             <span class="ctime">发表时间:{{ newsInfo.add_time | dateFormat }} </span>
@@ -10,7 +10,7 @@
         <hr>
         <!-- 内容区域 -->
         <div class="content" v-html="newsInfo.content"></div>
-        
+        <comment :id="id"></comment> 
     </div>
 </template>
 
