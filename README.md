@@ -186,7 +186,7 @@ npm test
     </template>
     ```
 
-### 注意 key 值错误
+## 注意 key 值错误
     ```
     vue.runtime.esm.js?ff9b:587 [Vue warn]: Duplicate keys detected: '2018-11-23T08:37:50.000Z'. This may cause an update error.
 
@@ -197,9 +197,9 @@ npm test
             <App> at src/App.vue
             <Root>
     ```
-## 使用v-for更新已渲染的元素列表时,默认用就地复用策略;列表数据修改的时候,他会根据key值去判断某个值是否修改,如果修改,则重新渲染这一项,否则复用之前的元素;vue和react的虚拟DOM的Diff算法大致相同，其核心是基于两个简单的假设：
+# 使用v-for更新已渲染的元素列表时,默认用就地复用策略;列表数据修改的时候,他会根据key值去判断某个值是否修改,如果修改,则重新渲染这一项,否则复用之前的元素;vue和react的虚拟DOM的Diff算法大致相同，其核心是基于两个简单的假设：
 1. 两个相同的组件产生类似的DOM结构，不同的组件产生不同的DOM结构。
 
 2. 同一层级的一组节点，他们可以通过唯一的id进行区分。
-## 所以我们需要使用key来给每个节点做一个唯一标识. 出现错误是由于key值出现冲突,改变key值即可
-## key的值只能是number或者string类型
+# 所以我们需要使用key来给每个节点做一个唯一标识. 出现错误是由于key值出现冲突,改变key值即可
+# key的值只能是number或者string类型
