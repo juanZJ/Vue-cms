@@ -33,6 +33,10 @@ import './lib/mui/css/icons-extra.css'
 //引入自己的全局样式
 import './css/common.less'
 
+//导入图片懒加载
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
+
 //定义全局过滤器
 Vue.filter('dateFormat', function(dateStr, pattern = 'YYYY-MM-DD HH:mm:ss') {
   // 直接调用表示获取当前时间
