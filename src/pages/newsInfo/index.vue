@@ -1,7 +1,7 @@
 <template>
     <div class="newsInfo-container">
         <!-- 大标newsInfo-container题 -->
-        <div class="title"></div>
+     <comment :id="id"></comment>   <div class="title"></div>
         <!-- 小标题 -->
         <div class="subtitle">
             <span class="ctime">发表时间:{{ newsInfo.add_time | dateFormat }} </span>
@@ -10,12 +10,13 @@
         <hr>
         <!-- 内容区域 -->
         <div class="content" v-html="newsInfo.content"></div>
-        <comment :id="id"></comment>
+        
     </div>
 </template>
 
 <script>
 import comment from "../../components/comment/";
+
 import { Toast } from "mint-ui";
 
 export default {

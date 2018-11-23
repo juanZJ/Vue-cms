@@ -37,6 +37,10 @@ import './css/common.less'
 import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload)
 
+//安装图片预览插件
+import VuePreview from 'vue2-preview'
+Vue.use(VuePreview)
+
 //定义全局过滤器
 Vue.filter('dateFormat', function(dateStr, pattern = 'YYYY-MM-DD HH:mm:ss') {
   // 直接调用表示获取当前时间
