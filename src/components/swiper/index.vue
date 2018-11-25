@@ -2,11 +2,11 @@
     <div class="swiper-container">
         <mt-swipe :auto="4000">
             <!-- 在组件中,使用v-for循环的话,一定要使用 key -->
-            <!-- 将来,谁使用此轮播图组件,谁为我们传递 lunbotuList -->
-            <!-- 此时,lunbotuList应该是父组件向子组件传值来设置 -->
+            <!-- 将来,谁使用此轮播图组件,谁为我们传递 bannerList -->
+            <!-- 此时,bannerList应该是父组件向子组件传值来设置 -->
             <mt-swipe-item v-for="(item, index) in bannerList" :key="index">
                 <a :href="item.url">
-                    <img :src="item.img">
+                    <img :src="item.img" :class="{'full': isfull}">
                 </a>
             </mt-swipe-item> 
         </mt-swipe>
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  props: ["bannerList"]
+  props: ["bannerList", "isfull"]
 };
 </script>
 
@@ -30,6 +30,7 @@ export default {
 .swiper-container {
   height: 200px;
   .mint-swipe-item {
+    text-align: center;
     &:nth-child(1) {
       background-color: yellow;
     }
@@ -42,9 +43,13 @@ export default {
       height: 100%;
     }
     img {
-      width: 100%;
+      // width: 100%;
+      height:100%
     }
   }
+}
+.full {
+  width:100%;
 }
 </style>
 

@@ -8,7 +8,7 @@
                 </a>
             </mt-swipe-item> 
         </mt-swipe> -->
-        <swiper :bannerList="bannerList"></swiper>
+        <swiper :bannerList="bannerList" :isfull="true"></swiper>
 
         <!-- 网格导航-->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
