@@ -64,6 +64,8 @@
 //导入轮播图组件
 import swiper from "../../components/swiper";
 
+import { mapMutations } from 'vuex'
+
 export default {
   data() {
     return {
@@ -79,6 +81,7 @@ export default {
     this.getGoodsInfo();
   },
   methods: {
+    ...mapMutations(['addToCar']),
     getLunbotu() {
       this.$http.get("api/getthumimages/" + this.id).then(result => {
         if (result.body.status === 0) {
@@ -111,6 +114,17 @@ export default {
     addToShopCar(){
         //添加到购物车
         this.ballFlag = !this.ballFlag;
+        // { id:商品的id, count:要购买的数量, price:商品的单价, selected:false}
+        //拼接出一个要保存到 store 中car 数组里的商品信息对象
+        var goodsInfo = {
+          id: this.id,
+          count: this.num,
+          price: this.goodsInfo.sell_price,
+          selected: true
+        };
+        // 调用store 中的mutation来将商品加入购物车
+        // this.$store.commit("addToCar", goodsInfo);
+        this.addToCar(goodsInfo)
     },
     beforeEnter(el){
         el.style.transform = "translate(0,0)";
